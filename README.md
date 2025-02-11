@@ -1,4 +1,3 @@
-````md
 # 🚀 ProdSell - Product Management System
 
 ProdSell is a **full-stack product management system** designed to streamline sales operations. It includes **user authentication, category & product management, invoice generation, and sales summaries**.
@@ -26,7 +25,6 @@ ProdSell is a **full-stack product management system** designed to streamline sa
 git clone https://github.com/your-username/prodsell.git
 cd prodsell
 ```
-````
 
 ### 2️⃣ Install Backend Dependencies
 
