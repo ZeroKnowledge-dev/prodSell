@@ -23,7 +23,7 @@ ProdSell is a **full-stack product management system** designed to streamline sa
 
 ```bash
 git clone https://github.com/ZeroKnowledge-dev/prodSell
-cd prodsell
+cd prodSell
 ```
 
 ### 2️⃣ Install Backend Dependencies
