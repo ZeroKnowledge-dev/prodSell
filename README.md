@@ -22,7 +22,7 @@ ProdSell is a **full-stack product management system** designed to streamline sa
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/prodsell.git
+git clone https://github.com/ZeroKnowledge-dev/prodSell
 cd prodsell
 ```
 
@@ -57,7 +57,7 @@ php artisan key:generate
 ### 6️⃣ Run Migrations & Seed Database
 
 ```bash
-php artisan migrate --seed
+php artisan migrate
 ```
 
 ### 7️⃣ Create a Storage Link
