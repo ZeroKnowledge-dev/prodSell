@@ -25,14 +25,12 @@ Route::get('/invoice', [InvoiceController::class, 'InvoicePage'])->middleware([T
 Route::get('/sales', [InvoiceController::class, 'SalesPage'])->middleware([TokenVerificationMiddleware::class]);
 Route::get('/report', [ReportController::class, 'ReportPage'])->middleware([TokenVerificationMiddleware::class]);
 
-// Token Verification Middleware
-Route::post('/reset-password', [UserController::class, 'ResetPassword'])->name('resetPassword')->middleware([TokenVerificationMiddleware::class]);
-
 // User API
 Route::post('/user-registration', [UserController::class, 'UserRegistration'])->name('userRegistration');
 Route::post('/user-login', [UserController::class, 'UserLogin'])->name('userLogin');
 Route::post('/send-otp', [UserController::class, 'SendOtpCOde'])->name('sendOtp');
 Route::post('/verify-otp', [UserController::class, 'VerifyOtpCOde'])->name('verifyOtp');
+Route::post('/reset-password', [UserController::class, 'ResetPassword'])->name('resetPassword')->middleware([TokenVerificationMiddleware::class]);
 
 // Profile API
 Route::get('/user-profile', [UserController::class, 'UserProfile'])->name('userProfile')->middleware([TokenVerificationMiddleware::class]);
