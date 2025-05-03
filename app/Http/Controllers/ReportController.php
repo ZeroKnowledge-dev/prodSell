@@ -14,16 +14,16 @@ class ReportController extends Controller {
 
 	function SalesReport(Request $request) {
 		$user_id  = $request->header('id');
-		$FormDate = date('Y-m-d', strtotime($request->FormDate));
+		$FromDate = date('Y-m-d', strtotime($request->FromDate));
 		$ToDate   = date('Y-m-d', strtotime($request->ToDate));
 
-		$total    = Invoice::where('user_id', $user_id)->whereDate('created_at', '>=', $FormDate)->whereDate('created_at', '<=', $ToDate)->sum('total');
-		$vat      = Invoice::where('user_id', $user_id)->whereDate('created_at', '>=', $FormDate)->whereDate('created_at', '<=', $ToDate)->sum('vat');
-		$payable  = Invoice::where('user_id', $user_id)->whereDate('created_at', '>=', $FormDate)->whereDate('created_at', '<=', $ToDate)->sum('payable');
-		$discount = Invoice::where('user_id', $user_id)->whereDate('created_at', '>=', $FormDate)->whereDate('created_at', '<=', $ToDate)->sum('discount');
+		$total    = Invoice::where('user_id', $user_id)->whereDate('created_at', '>=', $FromDate)->whereDate('created_at', '<=', $ToDate)->sum('total');
+		$vat      = Invoice::where('user_id', $user_id)->whereDate('created_at', '>=', $FromDate)->whereDate('created_at', '<=', $ToDate)->sum('vat');
+		$payable  = Invoice::where('user_id', $user_id)->whereDate('created_at', '>=', $FromDate)->whereDate('created_at', '<=', $ToDate)->sum('payable');
+		$discount = Invoice::where('user_id', $user_id)->whereDate('created_at', '>=', $FromDate)->whereDate('created_at', '<=', $ToDate)->sum('discount');
 
 		$list = Invoice::where('user_id', $user_id)
-			->whereDate('created_at', '>=', $FormDate)
+			->whereDate('created_at', '>=', $FromDate)
 			->whereDate('created_at', '<=', $ToDate)
 			->with('customer')->get();
 
@@ -33,7 +33,7 @@ class ReportController extends Controller {
 			'total'    => $total,
 			'vat'      => $vat,
 			'list'     => $list,
-			'FormDate' => $request->FormDate,
+			'FromDate' => $request->FromDate,
 			'ToDate'   => $request->ToDate, // Corrected this line
 		];
 
